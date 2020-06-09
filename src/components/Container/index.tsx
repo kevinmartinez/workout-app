@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Main = styled.main`
+export const Container = styled.section`
     display: grid;
     grid-template-columns: repeat(1fr, 1fr);
     color: #fff;

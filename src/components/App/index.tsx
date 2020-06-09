@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { createGlobalStyle } from 'styled-components'
-import { Main } from '../Main'
+import { Container } from '../Container'
 import { Heading } from '../Heading'
+import { Workout } from '../Workout'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -17,11 +18,22 @@ const GlobalStyle = createGlobalStyle`
     justify-content: center;
   }
 `
-export const App: React.FC = () => (
-  <>
-    <GlobalStyle/>
-    <Main>
-      <Heading />
-    </Main>
-  </>
-)
+const initialReps: Reps = 5;
+
+export const App: React.FC = () => {
+  const[reps, setReps] = useState(initialReps)
+
+  const countdownReps = (currentRep: Reps) => {
+    console.log(currentRep)
+  }
+
+  return (
+    <>
+      <GlobalStyle/>
+      <Container>
+        <Heading />
+        <Workout reps={reps} />
+      </Container>
+    </>
+  )
+}

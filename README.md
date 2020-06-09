@@ -1,4 +1,5 @@
-# Exercise App
+# Workout App
+Get healthy and fit with the help of this app
 
 ### Stack
 * React
