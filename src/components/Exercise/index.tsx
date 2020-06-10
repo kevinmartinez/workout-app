@@ -1,25 +1,20 @@
 import React, { useState } from 'react'
-import { Reps } from '../Reps'
-
-interface Props {
-    reps: Reps;
+import { Set } from '../Set'
+interface State {
+    setCount: SetCount
 }
 
-export const Exercise: React.FC<Props> = ({ reps }) => {
-    const [seconds, setCountdown] = useState(reps);
+export const Exercise: React.FC = () => {
+    const[sets] = useState<State>({
+        setCount: [1, 2 ,3 ,4 ,5]
+    })
+
     return (
         <section>
             <header>
                 <h3>Squats</h3>
             </header>
-            <div>
-                Set 1
-                <div>5</div>
-            </div>
-            <div>
-                Set 2
-                <Reps reps={reps}/>
-            </div>
+            {sets.setCount.map((set) => <Set key={set} />)}
         </section>
     )
 }

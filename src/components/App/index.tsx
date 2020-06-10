@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { createGlobalStyle } from 'styled-components'
 import { Container } from '../Container'
 import { Heading } from '../Heading'
@@ -18,21 +18,15 @@ const GlobalStyle = createGlobalStyle`
     justify-content: center;
   }
 `
-const initialReps: Reps = 5;
+
 
 export const App: React.FC = () => {
-  const[reps, setReps] = useState(initialReps)
-
-  const countdownReps = (currentRep: Reps) => {
-    console.log(currentRep)
-  }
-
   return (
     <>
       <GlobalStyle/>
       <Container>
         <Heading />
-        <Workout reps={reps} />
+        <Workout />
       </Container>
     </>
   )

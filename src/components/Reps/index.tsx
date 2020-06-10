@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { MouseEvent } from 'react'
 import styled from 'styled-components'
 
 const RepCount = styled.div`
@@ -13,13 +13,22 @@ const RepCount = styled.div`
 `
 
 interface Props {
-  reps: Reps;
+  reps: Reps
+  countdownReps: CountdownReps
 }
 
-export const Reps: React.FC<Props> = ({ reps }) => (
-  <>
-    <RepCount>
-      {reps}
-    </RepCount>
-  </>
-)
+export const Reps: React.FC<Props> = ({ reps, countdownReps }) => {
+  
+  const handleClick = (e: MouseEvent<HTMLDivElement>) => {
+    console.log(e.target)
+    countdownReps(reps)
+  }
+
+  return (
+    <>
+      <RepCount onClick={handleClick}>
+        {reps}
+      </RepCount>
+    </>
+  )
+}
