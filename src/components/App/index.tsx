@@ -19,11 +19,10 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-
 export const App: React.FC = () => {
   return (
     <>
-      <GlobalStyle/>
+      <GlobalStyle />
       <Container>
         <Heading />
         <Workout />

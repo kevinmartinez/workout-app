@@ -1,36 +1,23 @@
 import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
-import { Reps } from '.'
+import { Reps, Props } from '.'
 
 // function renderReps(props: Partial<Props> = {}) {
-//     const defaultProps: Props = {
-//       handleClick() {
-//         return;
-//       },
-//       reps: Reps
-//     };
-//     return render(<Reps {...defaultProps} {...props} />);
+//   const defaultProps: Props = {
+//     onClick() {
+//       return
+//     },
+//     shouldRemember: true,
 //   }
-// describe('<Reps />', () => {
-//     it('shows numer of reps', () => {
-//         const { getByText } = render(<Reps />)
-//         const buttonElement = getByText(/'reps'/i)
-//         expect(buttonElement).toBeInTheDocument()
-//     })
-// })
-
-// test('renders main heading', () => {
-//     const { getByText } = render(<App />)
-//     const headingElement = getByText(/exercise app/i)
-//     expect(headingElement).toBeInTheDocument()
-//   })
+//   return render(<Reps {...defaultProps} {...props} />)
+// }
 
 it('calls "onClick" prop on button click', () => {
-    // Render new instance in every test to prevent leaking state
-    const onClick = jest.fn();
-    const reps: number = 5
-    const { getByText } = render(<Reps reps={reps} countdownReps={onClick}/>);
-  
-    fireEvent.click(getByText(/[5]/))
-    expect(onClick).toHaveBeenCalled()
-  });
+  // Render new instance in every test to prevent leaking state
+  const onClick = jest.fn()
+  const reps = 5
+  const { getByText } = render(<Reps reps={reps} countdownReps={onClick} />)
+
+  fireEvent.click(getByText(/[5]/))
+  expect(onClick).toHaveBeenCalled()
+})
